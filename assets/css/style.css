@@ -1,0 +1,78 @@
+body,
+html {
+  font-family: "Prompt", Arial, sans-serif;
+}
+
+.bg-soft-gradient {
+  background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
+  min-height: 100vh;
+}
+
+.soft-card {
+  border: none;
+  background: #fff;
+  box-shadow: 0 8px 32px 0 rgba(91, 114, 238, 0.1),
+    0 1.5px 5px rgba(99, 102, 241, 0.07);
+  border-radius: 2.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #6366f1, #3b82f6 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.icon-circle {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e0e7ff 20%, #a5b4fc 100%);
+  box-shadow: 0 4px 20px #a5b4fc40;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  border-radius: 1rem;
+  font-size: 1.05rem;
+  background: #f8fafc;
+  border: 1.5px solid #e5e7eb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.15rem #a5b4fc35;
+  background: #fff;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #6366f1, #3b82f6 90%);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: box-shadow 0.15s, background 0.18s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #3b82f6, #6366f1 90%);
+  box-shadow: 0 4px 12px #6366f12a;
+  color: #fff;
+}
+
+@media (max-width: 540px) {
+  .soft-card {
+    padding: 1.25rem !important;
+    border-radius: 1.2rem;
+  }
+}
