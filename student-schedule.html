@@ -9,6 +9,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
     <link href="assets/css/student-dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .table-schedule thead th {
+            background: linear-gradient(90deg, #6366f1 15%, #a5b4fc 100%);
+            color: #fff;
+            border: none;
+            font-size: 1.08em;
+            font-weight: 600;
+            letter-spacing: .5px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table-schedule tbody tr {
+            transition: box-shadow .16s;
+        }
+
+        .table-schedule tbody tr.current {
+            background: linear-gradient(90deg, #fef9c3 55%, #e0e7ff 100%);
+            box-shadow: 0 3px 14px #6366f115;
+        }
+
+        .table-schedule td {
+            vertical-align: middle;
+            background: #f8fafc;
+            border-top: none;
+            text-align: center;
+            font-size: 1.03em;
+            border-radius: 1rem;
+        }
+
+        .table-schedule .subject-badge {
+            background: linear-gradient(90deg, #6366f1 40%, #60a5fa 100%);
+            color: #fff;
+            border-radius: 1.5em;
+            padding: .18em .95em .18em .6em;
+            font-size: .99em;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: .4em;
+        }
+
+        .table-schedule .teacher {
+            font-size: .96em;
+            color: #6366f1;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: .3em;
+            justify-content: center;
+        }
+
+        .filter-day {
+            display: flex;
+            gap: .7em;
+            margin-bottom: 1.3em;
+            flex-wrap: wrap;
+        }
+
+        .filter-day button {
+            border: none;
+            background: #e0e7ff;
+            color: #6366f1;
+            border-radius: 2em;
+            font-weight: 600;
+            padding: .45em 1.1em;
+            font-size: 1em;
+            transition: background .13s, color .13s;
+        }
+
+        .filter-day button.active,
+        .filter-day button:hover {
+            background: linear-gradient(90deg, #6366f1 35%, #3b82f6 90%);
+            color: #fff;
+        }
+
+        @media (max-width: 540px) {
+
+            .table-schedule td,
+            .table-schedule th {
+                font-size: .95em;
+            }
+
+            .filter-day {
+                gap: .4em;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-soft-gradient">
@@ -70,8 +158,10 @@
             <div class="col-12">
                 <div class="card soft-card shadow-sm">
                     <div class="card-body">
-                        <h3 class="text-gradient fw-bold mb-4"><i class="fa-solid fa-calendar-days me-2"></i>ตารางเรียน
+                        <h3 class="text-gradient fw-bold mb-4">
+                            <i class="fa-solid fa-calendar-days me-2"></i>ตารางเรียน
                         </h3>
+                        <div class="filter-day mb-3" id="dayFilter"></div>
                         <div class="table-responsive">
                             <table class="table align-middle table-borderless table-schedule mb-0">
                                 <thead>
@@ -87,6 +177,9 @@
                                     <!-- JS Render -->
                                 </tbody>
                             </table>
+                        </div>
+                        <div id="noSchedule" class="text-center text-muted my-3" style="display:none;">
+                            <i class="fa-solid fa-face-meh-blank me-1"></i> ไม่มีตารางเรียนสำหรับวันนี้
                         </div>
                     </div>
                 </div>
